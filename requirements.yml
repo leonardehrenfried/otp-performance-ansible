@@ -1,0 +1,11 @@
+---
+collections:
+- ansible.posix
+- devsec.hardening
+- name: community.general
+  version: 3.7.0
+
+
+roles:
+- src: geerlingguy.firewall
+  version: 2.5.0
