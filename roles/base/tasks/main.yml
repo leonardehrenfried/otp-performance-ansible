@@ -1,0 +1,17 @@
+---
+
+- name: Install base packages
+  package:
+    name:
+      - htop
+      - tree
+      - neovim
+      - cron-apt
+      - autojump
+      - jq
+      - zsh
+      - unzip
+      - tar
+      - git
+    state: present
+

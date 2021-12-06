@@ -9,7 +9,7 @@ github_access_token: !vault |
           6239663161666161623833326636623261363363396562303537
 
 
-reinstall_runner: yes
+reinstall_runner: no
 runner_version: "2.285.0"
 access_token: "{{ github_access_token }}"
 
