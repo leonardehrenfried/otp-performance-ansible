@@ -2,9 +2,6 @@
 - name: Install GitHub Actions Runner
   hosts: all
   become: yes
-  vars:
-    - github_account: leonardehrenfried
-    - github_repo: OpenTripPlanner
   roles:
     - role: base
     - role: monolithprojects.github_actions_runner
