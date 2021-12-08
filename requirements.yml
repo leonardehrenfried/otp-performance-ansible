@@ -5,6 +5,11 @@ collections:
 - name: community.general
   version: 3.7.0
 
+- name: git+https://github.com/leonardehrenfried/ansible-baseline.git
+  type: git
+  version: main
+
+
 
 roles:
 - src: geerlingguy.firewall

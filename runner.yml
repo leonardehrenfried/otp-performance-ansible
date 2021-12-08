@@ -8,3 +8,4 @@
   roles:
     - role: base
     - role: monolithprojects.github_actions_runner
+    - role: leonardehrenfried.baseline.influxdb
