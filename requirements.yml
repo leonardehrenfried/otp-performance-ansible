@@ -4,12 +4,8 @@ collections:
 - devsec.hardening
 - name: community.general
   version: 3.7.0
-
-- name: git+https://github.com/leonardehrenfried/ansible-baseline.git
-  type: git
-  version: main
-
-
+- name: leonardehrenfried.baseline
+  version: 0.0.4
 
 roles:
 - src: geerlingguy.firewall
