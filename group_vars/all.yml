@@ -30,3 +30,5 @@ influxdb_password: !vault |
           30626366616365643863326563663962376633366232333732356463376664303437
 
 influxdb_domain_name: otp-github-actions-runner.leonard.io
+
+grafana_domain_name: otp-performance.leonard.io
