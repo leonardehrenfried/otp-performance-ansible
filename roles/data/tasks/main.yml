@@ -1,0 +1,8 @@
+---
+- name: Install cleanup script
+  template:
+    src: "{{ item }}"
+    dest: /usr/local/bin/
+    mode: +x
+  with_items:
+    - prune-influx-data

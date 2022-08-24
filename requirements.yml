@@ -3,7 +3,7 @@ collections:
 - ansible.posix
 - devsec.hardening
 - name: community.general
-  version: 3.7.0
+  version: 5.2.0
 - name: leonardehrenfried.baseline
   version: 0.1.1
 

@@ -4,6 +4,7 @@
   become: yes
   roles:
     - role: base
+    - role: data
       #    - role: monolithprojects.github_actions_runner
     - role: leonardehrenfried.baseline.influxdb
     - role: leonardehrenfried.baseline.grafana

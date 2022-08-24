@@ -1,0 +1,86 @@
+#! /bin/bash
+
+tables=(
+  raptor_Mc-DP_minute_transfers
+  raptor_Mc-DP_minute_transit
+  raptor_Mc-DP_route
+  raptor_Mc-LL-DP_minute_transfers
+  raptor_Mc-LL-DP_minute_transit
+  raptor_Mc-LL-DP_route
+  raptor_MinTravelDuration-Rev_minute_transfers
+  raptor_MinTravelDuration-Rev_minute_transit
+  raptor_MinTravelDuration-Rev_route
+  raptor_MinTravelDurationBT-Rev_minute_transfers
+  raptor_MinTravelDurationBT-Rev_minute_transit
+  raptor_MinTravelDurationBT-Rev_route
+  raptor_MinTravelDuration_minute_transfers
+  raptor_MinTravelDuration_minute_transit
+  raptor_MinTravelDuration_route
+  raptor_NoWaitBT-Rev_minute_transfers
+  raptor_NoWaitBT-Rev_minute_transit
+  raptor_NoWaitBT-Rev_route
+  routing_access
+  routing_accessEgress
+  routing_access_percentile
+  routing_directFlex
+  routing_directStreet
+  routing_egress
+  routing_filtering
+  routing_itineraryCreation
+  routing_numAccess
+  routing_numEgress
+  routing_preCalculation
+  routing_raptor
+  routing_rendering
+  routing_router
+  routing_total
+  routing_transit
+  routing_tripPatternFiltering
+)
+
+tables_to_drop=(
+  raptor_Mc-DP_minute_transfers_percentile
+  raptor_Mc-DP_minute_transit_percentile
+  raptor_Mc-DP_route_percentile
+  routing_accessEgress_percentile
+  routing_access_percentile
+  routing_directFlex_percentile
+  routing_directStreet_percentile
+  routing_egress_percentile
+  routing_filtering_percentile
+  routing_itineraryCreation_percentile
+  routing_numAccess_percentile
+  routing_numEgress_percentile
+  routing_preCalculation_percentile
+  routing_raptor_percentile
+  routing_rendering_percentile
+  routing_router_percentile
+  routing_total_percentile
+  routing_transit_percentile
+  routing_tripPatternFiltering_percentile
+  speedTest_collect_results
+  speedTest_collect_results_percentile
+  speedTest_direct_street_route
+  speedTest_direct_street_route_percentile
+  speedTest_route
+  speedTest_route_percentile
+  speedTest_route_worker
+  speedTest_route_worker_percentile
+  speedTest_street_route
+  speedTest_street_route_percentile
+  speedTest_transit_data
+  speedTest_transit_data_percentile
+  speedTest_transit_raptor
+  speedTest_transit_raptor_percentile
+  speedTest_transit_routing
+)
+
+for i in "${tables[@]}"
+do
+  influx -username performance -database performance -password {{ influxdb_password }} -execute "DELETE FROM \"${i}\" WHERE git_branch != 'dev-2.x' AND time < (now() - 14d)";
+done
+
+for i in "${tables_to_drop[@]}"
+do
+  influx -username performance -database performance -password {{ influxdb_password }} -execute "DROP measurement \"${i}\"";
+done
