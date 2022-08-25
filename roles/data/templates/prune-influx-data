@@ -1,23 +1,11 @@
 #! /bin/bash -e
 
 tables=(
-  raptor_Mc-DP_minute_transfers
-  raptor_Mc-DP_minute_transit
   raptor_Mc-DP_route
-  raptor_Mc-LL-DP_minute_transfers
-  raptor_Mc-LL-DP_minute_transit
   raptor_Mc-LL-DP_route
-  raptor_MinTravelDuration-Rev_minute_transfers
-  raptor_MinTravelDuration-Rev_minute_transit
   raptor_MinTravelDuration-Rev_route
-  raptor_MinTravelDurationBT-Rev_minute_transfers
-  raptor_MinTravelDurationBT-Rev_minute_transit
   raptor_MinTravelDurationBT-Rev_route
-  raptor_MinTravelDuration_minute_transfers
-  raptor_MinTravelDuration_minute_transit
   raptor_MinTravelDuration_route
-  raptor_NoWaitBT-Rev_minute_transfers
-  raptor_NoWaitBT-Rev_minute_transit
   raptor_NoWaitBT-Rev_route
   routing_access
   routing_accessEgress
@@ -39,6 +27,18 @@ tables=(
 )
 
 tables_to_drop=(
+  raptor_Mc-DP_minute_transfers
+  raptor_Mc-DP_minute_transit
+  raptor_Mc-LL-DP_minute_transfers
+  raptor_Mc-LL-DP_minute_transit
+  raptor_MinTravelDuration-Rev_minute_transfers
+  raptor_MinTravelDuration-Rev_minute_transit
+  raptor_MinTravelDurationBT-Rev_minute_transfers
+  raptor_MinTravelDurationBT-Rev_minute_transit
+  raptor_MinTravelDuration_minute_transfers
+  raptor_MinTravelDuration_minute_transit
+  raptor_NoWaitBT-Rev_minute_transfers
+  raptor_NoWaitBT-Rev_minute_transit
   raptor_Mc-DP_minute_transfers_percentile
   raptor_Mc-DP_minute_transit_percentile
   raptor_Mc-DP_route_percentile
