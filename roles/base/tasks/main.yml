@@ -13,6 +13,7 @@
       - unzip
       - tar
       - git
+      - zip
     state: present
 
 - name: Configure passwordless sudo

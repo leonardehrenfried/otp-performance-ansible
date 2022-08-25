@@ -6,3 +6,22 @@
     mode: +x
   with_items:
     - prune-influx-data
+    - backup-influx-data
+
+- name: Install systemd files for influx pruning
+  template: src={{ item }} dest=/etc/systemd/system/
+  with_items:
+    - prune-influx-data.service
+    - prune-influx-data.timer
+    - backup-influx-data.service
+    - backup-influx-data.timer
+
+- name: Start docker-prune.timer
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+    daemon_reload: yes
+  with_items:
+    - prune-influx-data.timer
+    - backup-influx-data.timer

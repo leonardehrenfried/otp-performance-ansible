@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -e
 
 tables=(
   raptor_Mc-DP_minute_transfers
