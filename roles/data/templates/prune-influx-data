@@ -7,16 +7,11 @@ tables=(
   raptor_MinTravelDurationBT-Rev_route
   raptor_MinTravelDuration_route
   raptor_NoWaitBT-Rev_route
-  routing_access
   routing_accessEgress
-  routing_access_percentile
   routing_directFlex
   routing_directStreet
-  routing_egress
   routing_filtering
   routing_itineraryCreation
-  routing_numAccess
-  routing_numEgress
   routing_preCalculation
   routing_raptor
   routing_rendering
@@ -27,6 +22,10 @@ tables=(
 )
 
 tables_to_drop=(
+  routing_numAccess
+  routing_numEgress
+  routing_egress
+  routing_access
   raptor_Mc-DP_minute_transfers
   raptor_Mc-DP_minute_transit
   raptor_Mc-LL-DP_minute_transfers
