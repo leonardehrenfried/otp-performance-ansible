@@ -30,6 +30,12 @@ tables_to_drop=(
   raptor_Mc-DP_minute_transit
   raptor_Mc-LL-DP_minute_transfers
   raptor_Mc-LL-DP_minute_transit
+  raptor_MinTravelDuration-Rev_route_percentile
+  raptor_MinTravelDuration-Rev_minute_transfers_percentile
+  raptor_MinTravelDuration-Rev_minute_transit_percentile
+  raptor_MinTravelDuration_minute_transfers_percentile
+  raptor_MinTravelDuration_minute_transit_percentile
+  raptor_MinTravelDuration_route_percentile
   raptor_MinTravelDuration-Rev_minute_transfers
   raptor_MinTravelDuration-Rev_minute_transit
   raptor_MinTravelDurationBT-Rev_minute_transfers
