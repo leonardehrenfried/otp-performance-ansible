@@ -10,7 +10,7 @@ influxd backup -portable -database performance ${folder}
 
 # restore with:
 # sudo influxd restore -db performance -newdb performance -datadir /var/lib/influxdb/data -metadir /var/lib/influxdb/meta /home/lenni/tmp/otp-speed-test/
-# sudo chown -R influxdb:influxdb /var/lib/influxdb/data/
+# sudo chown -R influxdb:influxdb /var/lib/influxdb/
 # sudo systemctl restart influxdb.service
 
 zip -r "${file}" $folder
