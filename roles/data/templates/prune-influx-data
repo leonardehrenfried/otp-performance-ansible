@@ -10,13 +10,13 @@ tables=(
   routing_directStreet
   routing_filtering
   routing_raptor
-  routing_router
   routing_total
   routing_transit
   routing_tripPatternFiltering
 )
 
 tables_to_drop=(
+  routing_router
   routing_numAccess
   routing_numEgress
   routing_egress
