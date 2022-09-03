@@ -3,7 +3,7 @@ Description=backup-influx-data
 
 [Timer]
 #OnCalendar=0 5 * * 0
-OnCalendar=Sat *-*-* 05:00:00
+OnCalendar=Tue,Thu,Sat *-*-* 05:00:00
 Persistent=true
 
 [Install]
