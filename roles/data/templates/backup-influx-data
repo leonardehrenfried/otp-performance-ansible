@@ -20,3 +20,5 @@ curl --silent --show-error --fail -T "${file}" -u 'otp-backup:{{ otp_backup_pass
 
 rm "$file"
 rm -rf $folder
+
+systemctl restart influxdb

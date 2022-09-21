@@ -89,3 +89,4 @@ for i in "${tables_to_drop[@]}"
 do
   influx -username performance -database performance -password {{ influxdb_password }} -execute "DROP measurement \"${i}\"";
 done
+
