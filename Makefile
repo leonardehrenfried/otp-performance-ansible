@@ -8,5 +8,5 @@ install:
 	ansible-galaxy collection install -r requirements.yml
 	ansible-galaxy install -r requirements.yml
 
-runner: install
+provision: install
 	${PLAYBOOK_CMD} -i hosts runner.yml
