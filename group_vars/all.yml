@@ -38,6 +38,10 @@ otp_backup_password: !vault |
 
 
 influxdb_domain_name: otp-github-actions-runner.leonard.io
+influxdb_max_series: 0
+
+podman_prune_users:
+  - root
 
 grafana_domain_name: otp-performance.leonard.io
 grafana_allow_anon_access: true

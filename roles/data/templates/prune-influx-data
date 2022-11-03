@@ -13,6 +13,7 @@ tables=(
   routing_total
   routing_transit
   routing_tripPatternFiltering
+  jvm_max_memory
 )
 
 tables_to_drop=(
@@ -83,6 +84,7 @@ tables_to_drop=(
 for i in "${tables[@]}"
 do
   influx -username performance -database performance -password {{ influxdb_password }} -execute "DELETE FROM \"${i}\" WHERE git_branch != 'dev-2.x' AND time < (now() - 14d)";
+  #influx -username performance -database performance -password {{ influxdb_password }} -execute "DELETE FROM \"${i}\" WHERE location = 'baden-wuerttemberg' AND time > (now() - 6h)";
 done
 
 for i in "${tables_to_drop[@]}"

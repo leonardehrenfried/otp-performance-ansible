@@ -5,7 +5,7 @@ collections:
 - name: community.general
   version: 5.2.0
 - name: leonardehrenfried.baseline
-  version: 0.1.6
+  version: 0.1.11
 
 roles:
 - src: geerlingguy.firewall
