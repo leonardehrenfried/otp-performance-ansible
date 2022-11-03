@@ -13,7 +13,13 @@ tables=(
   routing_total
   routing_transit
   routing_tripPatternFiltering
+  jvm_free_memory
   jvm_max_memory
+  jvm_total_memory
+  jvm_used_memory
+  transitdata_patterns
+  transitdata_stops
+  transitdata_trips
 )
 
 tables_to_drop=(
