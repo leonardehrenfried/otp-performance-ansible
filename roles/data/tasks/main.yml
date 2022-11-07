@@ -7,6 +7,7 @@
   with_items:
     - prune-influx-data
     - backup-influx-data
+    - create-continuous-queries
 
 - name: Install systemd files for influx pruning
   template: src={{ item }} dest=/etc/systemd/system/
