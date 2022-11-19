@@ -1,0 +1,25 @@
+#! /bin/bash -ex
+
+tables=(
+  raptor_Mc-DP_route
+  raptor_MinTravelDuration-Rev_route
+  raptor_MinTravelDurationBT-Rev_route
+  raptor_MinTravelDuration_route
+  raptor_NoWaitBT-Rev_route
+  routing_accessEgress
+  routing_directStreet
+  routing_filtering
+  routing_raptor
+  routing_total
+  routing_transit
+  routing_tripPatternFiltering
+)
+
+for i in "${tables[@]}"
+do
+  influx -username performance -database performance -password {{ influxdb_password }} -execute "SELECT * INTO \"${i}_intermediate\" FROM \"${i}\" GROUP BY git_commit,location,tags,TestCaseCategory,git_branch"
+  influx -username performance -database performance -password {{ influxdb_password }} -execute "DROP MEASUREMENT \"${i}\""
+  influx -username performance -database performance -password {{ influxdb_password }} -execute "SELECT * INTO \"${i}\" FROM \"${i}_intermediate\" GROUP BY git_commit,location,tags,TestCaseCategory,git_branch"
+done
+
+

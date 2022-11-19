@@ -17,7 +17,7 @@ tables=(
 
 for i in "${tables[@]}"
 do
-  influx -username performance -database performance -password {{ influxdb_password }} -execute "SELECT time,mean(mean) INTO \"${i}_aggregated\" FROM \"${i}\" GROUP BY time(10m),location,git_commit,tags,TestCaseCategory,git_branch"
+  #influx -username performance -database performance -password {{ influxdb_password }} -execute "SELECT time,mean(mean) INTO \"${i}_aggregated\" FROM \"${i}\" GROUP BY time(10m),location,git_commit,tags,TestCaseCategory,git_branch"
   influx -username performance -database performance -password {{ influxdb_password }} -execute "CREATE CONTINUOUS QUERY \"cq_${i}_aggregate\" ON \"performance\" BEGIN SELECT time,mean(mean) INTO \"${i}_aggregated\" FROM \"${i}\" GROUP BY time(10m),location,git_commit,tags,TestCaseCategory,git_branch END"
 done
 

@@ -8,6 +8,7 @@
     - prune-influx-data
     - backup-influx-data
     - create-continuous-queries
+    - convert-tags-to-fields
 
 - name: Install systemd files for influx pruning
   template: src={{ item }} dest=/etc/systemd/system/
