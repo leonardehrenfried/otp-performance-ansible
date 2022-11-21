@@ -1,4 +1,4 @@
 ---
-performance_service_image: docker.io/opentripplanner/performance-service:3fd2368383180b1500ad7898d266c7a0f9b53155
+performance_service_image: docker.io/opentripplanner/performance-service:27a229f53f2d1cfa727150b90be7614759595c63
 performance_service_port: 8888
 performance_service_domain: db.otp-performance.leonard.io
