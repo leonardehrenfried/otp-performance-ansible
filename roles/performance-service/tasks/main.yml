@@ -1,0 +1,52 @@
+---
+
+- name: Install base packages
+  package:
+    name:
+      - postgresql
+      - python3-psycopg2
+    state: present
+
+- name: Create a new database performance
+  become: yes
+  become_user: postgres
+  community.postgresql.postgresql_db:
+    name: performance
+    encoding: UTF-8
+
+- name: Create user with SCRAM-hashed password
+  become: yes
+  become_user: postgres
+  community.postgresql.postgresql_user:
+    name: performance
+    password: "{{ performance_db_password }}"
+
+- name: GRANT ALL PRIVILEGES ON SCHEMA public
+  become: yes
+  become_user: postgres
+  community.postgresql.postgresql_privs:
+    db: performance
+    privs: ALL
+    type: schema
+    objs: public
+    roles: PUBLIC
+
+- name: Create user and add to groups
+  user:
+    name: performance
+    append: yes
+    state: present
+
+- name: Install systemd files for service
+  template: src={{ item }} dest=/etc/systemd/system/
+  with_items:
+    - performance.service
+
+- name: Start service
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+    daemon_reload: yes
+  with_items:
+    - performance.service

@@ -1,0 +1,7 @@
+---
+collections:
+
+dependencies:
+  - role: base
+  - leonardehrenfried.baseline.podman
+  - leonardehrenfried.baseline.apache
