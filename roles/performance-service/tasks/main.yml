@@ -50,3 +50,9 @@
     daemon_reload: yes
   with_items:
     - performance.service
+     
+- name: Install apache config files
+  ansible.builtin.template:
+    src: apache.conf
+    dest: /etc/apache2/sites-enabled/
+  notify: Restart apache
