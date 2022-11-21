@@ -51,6 +51,14 @@ podman_prune_users:
   - root
   - performance
 
+firewall_state: started
+firewall_enabled_at_boot: true
+firewall_allowed_tcp_ports:
+  - "22"
+  - "80"
+  - "443"
+  - "8087"
+
 grafana_domain_name: otp-performance.leonard.io
 grafana_allow_anon_access: true
 grafana_apache_aliases:

@@ -1,0 +1,7 @@
+---
+collections:
+
+dependencies:
+  - role: geerlingguy.firewall
+
+
