@@ -14,7 +14,6 @@ ExecStartPre=-podman rm %n
 ExecStartPre=-send-to-matrix "🔁 Starting geocoder on {{ inventory_hostname }}"
 
 ExecStart=podman run -it --rm --name %n \
-    -p {{ performance_service_port }}:8080 \
     -e POSTGRES_PASSWORD={{ performance_db_password }} \
     --network=host \
     {{ performance_service_image }} server /config/performance.yml
