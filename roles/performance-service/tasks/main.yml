@@ -41,6 +41,7 @@
   template: src={{ item }} dest=/etc/systemd/system/
   with_items:
     - performance.service
+  notify: Restart performance
 
 - name: Start service
   systemd:
@@ -50,7 +51,6 @@
     daemon_reload: yes
   with_items:
     - performance.service
-  notify: Restart performance
 
 - name: Install apache config files
   ansible.builtin.template:

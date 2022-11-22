@@ -18,6 +18,7 @@ github_repo: OpenTripPlanner
 runner_labels:
   - performance-test
 
+# grafana data sources
 influxdb_database: performance
 influxdb_username: performance
 influxdb_password: !vault |
@@ -27,6 +28,10 @@ influxdb_password: !vault |
           30333238633133636463663534313661303231376437353032313664303162373966316235306137
           6164346263666230320a646631366134346130616362656661353930316666343938306364633133
           30626366616365643863326563663962376633366232333732356463376664303437
+
+postgres_db: performance
+postgres_username: performance
+postgres_password: "{{ performance_db_password }}"
 
 otp_backup_password: !vault |
   $ANSIBLE_VAULT;1.1;AES256
