@@ -1,10 +1,10 @@
 ---
-
 - name: Install base packages
   package:
     name:
       - postgresql
       - python3-psycopg2
+      - python3-passlib
     state: present
 
 - name: Create a new database performance
@@ -51,6 +51,16 @@
     daemon_reload: yes
   with_items:
     - performance.service
+
+- name: Add a user to a password file and ensure permissions are set
+  community.general.htpasswd:
+    path: /etc/apache2/passwdfile
+    name: performance
+    password: "{{ influxdb_password }}"
+    owner: root
+    group: www-data
+    mode: 0640
+  notify: Restart apache
 
 - name: Install apache config files
   ansible.builtin.template:
