@@ -11,14 +11,14 @@ ExecStartPre=-podman stop --ignore %n
 ExecStartPre=-podman rm %n
 
 #ExecStartPre=podman pull {{ performance_service_image }}
-ExecStartPre=-send-to-matrix "🔁 Starting geocoder on {{ inventory_hostname }}"
 
 ExecStart=podman run -it --rm --name %n \
     -e POSTGRES_PASSWORD={{ performance_db_password }} \
+    -v /home/lenni/data/:/data:z \
     --network=host \
     {{ performance_service_image }} server /config/performance.yml
 
-ExecStop=podman stop --ignore %n
+ExecStop=-podman stop --ignore %n
 ExecStop=-podman rm %n
 
 Restart=on-failure
