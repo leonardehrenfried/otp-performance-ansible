@@ -1,0 +1,12 @@
+#! /bin/bash -e
+
+d=$(date --iso-8601=date)
+
+file=/tmp/otp-speed-test-${d}.pgdump
+
+pg_dump -Fc performance > "$file"
+
+echo "Sending file to off-site storage"
+curl --silent --show-error --fail -T "${file}" -u 'otp-backup:{{ otp_backup_password }}' "https://nextcloud.leonard.io/remote.php/dav/files/otp-backup/otp-speed-test/"
+
+rm "$file"

@@ -56,7 +56,7 @@
   community.general.htpasswd:
     path: /etc/apache2/passwdfile
     name: performance
-    password: "{{ influxdb_password }}"
+    password: "{{ influxdb_auth_password }}"
     owner: root
     group: www-data
     mode: 0640

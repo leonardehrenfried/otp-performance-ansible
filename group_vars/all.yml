@@ -19,9 +19,7 @@ runner_labels:
   - performance-test
 
 # grafana data sources
-influxdb_database: performance
-influxdb_username: performance
-influxdb_password: !vault |
+influxdb_auth_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           62666165623763356530653665396461373030333161623462306131643463343931613462353262
           3832303961613736303838323865666632623738356631380a663630303531373936303635383439

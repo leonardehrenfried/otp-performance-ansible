@@ -3,5 +3,6 @@ collections:
 
 dependencies:
   - role: geerlingguy.firewall
+  - leonardehrenfried.baseline.journald
 
 

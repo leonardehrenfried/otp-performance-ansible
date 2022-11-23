@@ -7,5 +7,4 @@
     - role: data
     - role: performance-service
     - role: monolithprojects.github_actions_runner
-    - role: leonardehrenfried.baseline.influxdb
     - role: leonardehrenfried.baseline.grafana

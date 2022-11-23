@@ -2,5 +2,6 @@
 Description=prune-influx-data
 
 [Service]
+User=postgres
 Type=oneshot
-ExecStart=/usr/local/bin/backup-influx-data
+ExecStart=/usr/local/bin/backup-postgres-data
