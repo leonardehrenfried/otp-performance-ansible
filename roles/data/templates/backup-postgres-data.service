@@ -1,5 +1,5 @@
 [Unit]
-Description=prune-influx-data
+Description=Backup postgres data
 
 [Service]
 User=postgres

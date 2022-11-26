@@ -4,6 +4,8 @@ d=$(date --iso-8601=date)
 
 file=/tmp/otp-speed-test-${d}.pgdump
 
+psql -d performance -c "DELETE FROM measurements WHERE time < current_timestamp - interval '7 days' AND git_branch != 'dev-2.x'"
+
 pg_dump -Fc performance > "$file"
 
 echo "Sending file to off-site storage"

@@ -1,6 +1,0 @@
-[Unit]
-Description=prune-influx-data
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/prune-influx-data
