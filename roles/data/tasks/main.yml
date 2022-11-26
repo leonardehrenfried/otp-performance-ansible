@@ -6,14 +6,15 @@
     mode: +x
   with_items:
     - backup-postgres-data
-    #- create-continuous-queries
-    #- convert-tags-to-fields
+    - backup-grafana-db
 
 - name: Install systemd files for influx pruning
   template: src={{ item }} dest=/etc/systemd/system/
   with_items:
     - backup-postgres-data.service
     - backup-postgres-data.timer
+    - backup-grafana-db.service
+    - backup-grafana-db.timer
 
 - name: Start timers
   systemd:
@@ -23,3 +24,4 @@
     daemon_reload: yes
   with_items:
     - backup-postgres-data.timer
+    - backup-grafana-db.timer

@@ -1,0 +1,9 @@
+[Unit]
+Description=backup-influx-data
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

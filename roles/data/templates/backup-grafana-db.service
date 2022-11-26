@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup postgres data
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup-grafana-db

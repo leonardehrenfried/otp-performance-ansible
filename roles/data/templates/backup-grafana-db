@@ -1,0 +1,8 @@
+#! /bin/bash -e
+
+d=$(date --iso-8601=date)
+
+file=/var/lib/containers/storage/volumes/grafana-storage/_data/grafana.db
+
+echo "Sending file to off-site storage"
+curl --silent --show-error --fail -T "${file}" -u 'otp-backup:{{ otp_backup_password }}' "https://nextcloud.leonard.io/remote.php/dav/files/otp-backup/otp-speed-test/grafana-${d}.db"
