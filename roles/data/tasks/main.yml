@@ -25,3 +25,8 @@
   with_items:
     - backup-postgres-data.timer
     - backup-grafana-db.timer
+
+- name: Copy static Tier Oslo GBFS feed
+  ansible.builtin.copy:
+    src: tieroslo
+    dest: /home/lenni/www/norway
