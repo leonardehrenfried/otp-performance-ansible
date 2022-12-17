@@ -4,7 +4,46 @@ d=$(date --iso-8601=date)
 
 file=/tmp/otp-speed-test-${d}.pgdump
 
-psql -d performance -c "DELETE FROM measurements WHERE time < current_timestamp - interval '7 days' AND git_branch != 'dev-2.x'"
+psql -d performance -c "DELETE FROM measurements WHERE time < current_timestamp - interval '14 days' AND git_branch != 'dev-2.x'"
+
+measurements_to_delete=(
+  raptor_MinTravelDuration-Rev_route_percentile
+  raptor_MinTravelDuration-Rev_minute_transfers_percentile
+  raptor_MinTravelDuration-Rev_minute_transit_percentile
+  raptor_MinTravelDuration_minute_transfers_percentile
+  raptor_MinTravelDuration_minute_transit_percentile
+  raptor_MinTravelDuration_route_percentile
+  raptor_Mc-DP_minute_transfers_percentile
+  raptor_Mc-DP_minute_transit_percentile
+  raptor_Mc-DP_route_percentile
+  routing_accessEgress_percentile
+  routing_access_percentile
+  routing_directFlex_percentile
+  routing_directStreet_percentile
+  routing_egress_percentile
+  routing_filtering_percentile
+  routing_itineraryCreation_percentile
+  routing_numAccess_percentile
+  routing_numEgress_percentile
+  routing_preCalculation_percentile
+  routing_raptor_percentile
+  routing_rendering_percentile
+  routing_router_percentile
+  routing_total_percentile
+  routing_transit_percentile
+  routing_tripPatternFiltering_percentile
+  speedTest_direct_street_route_percentile
+  speedTest_route_percentile
+  speedTest_route_worker_percentile
+  speedTest_street_route_percentile
+  speedTest_transit_data_percentile
+  speedTest_transit_raptor_percentile
+)
+
+for i in "${measurements_to_delete[@]}"
+do
+  psql -d performance -c "DELETE FROM measurements WHERE name ='$i'"
+done
 
 pg_dump -Fc performance > "$file"
 
