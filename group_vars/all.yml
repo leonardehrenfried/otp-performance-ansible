@@ -18,7 +18,11 @@ github_repo: OpenTripPlanner
 runner_labels:
   - performance-test
 
-# grafana data sources
+server_name: otp-performance
+
+timezone: Europe/Berlin
+
+# performance service auth password
 influxdb_auth_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           62666165623763356530653665396461373030333161623462306131643463343931613462353262
