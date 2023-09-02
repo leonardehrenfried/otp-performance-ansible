@@ -38,6 +38,19 @@ measurements_to_delete=(
   speedTest_street_route_percentile
   speedTest_transit_data_percentile
   speedTest_transit_raptor_percentile
+  routing_numAccess
+  routing_numEgress
+  raptor_Mc-DP_route_aggregated
+  raptor_MinTravelDurationBT-Rev_route_aggregated
+  raptor_MinTravelDuration-Rev_route_aggregated
+  raptor_MinTravelDuration_route_aggregated
+  routing_accessEgress_aggregated
+  routing_directStreet_aggregated
+  routing_filtering_aggregated
+  routing_raptor_aggregated
+  routing_total_aggregated
+  routing_transit_aggregated
+  routing_tripPatternFiltering_aggregated
 )
 
 for i in "${measurements_to_delete[@]}"
