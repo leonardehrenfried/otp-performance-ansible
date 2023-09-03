@@ -1,4 +1,4 @@
-#! /bin/bash -e
+#! /bin/bash -ex
 
 d=$(date --iso-8601=date)
 
@@ -53,10 +53,10 @@ measurements_to_delete=(
   routing_tripPatternFiltering_aggregated
 )
 
-for i in "${measurements_to_delete[@]}"
-do
-  psql -d performance -c "DELETE FROM measurements WHERE name ='$i'"
-done
+printf -v columns "'%s'," "${measurements_to_delete[@]}"
+columns=${columns%?}
+
+echo psql -d performance -c "DELETE FROM measurements WHERE name IN ($columns)"
 
 pg_dump -Fc performance > "$file"
 
@@ -64,3 +64,5 @@ echo "Sending file to off-site storage"
 curl --silent --show-error --fail -T "${file}" -u 'otp-backup:{{ otp_backup_password }}' "https://nextcloud.leonard.io/remote.php/dav/files/otp-backup/otp-speed-test/"
 
 rm "$file"
+
+psql -d performance -c "VACUUM (VERBOSE, ANALYZE) measurements;"
