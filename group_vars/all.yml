@@ -52,7 +52,6 @@ performance_db_password: !vault |
           31626664343935393536383233653635313161323863633966346366313563343536
 
 influxdb_domain_name: otp-github-actions-runner.leonard.io
-influxdb_max_series: 0
 
 podman_prune_users:
   - root
