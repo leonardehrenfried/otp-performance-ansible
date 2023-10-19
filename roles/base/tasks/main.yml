@@ -2,7 +2,7 @@
 - name: Caddyfile
   ansible.builtin.template:
     src: templates/grafana.caddy
-    dest: /etc/caddy/Caddyfile
+    dest: /etc/caddy/
     owner: caddy
     group: caddy
     mode: 0660

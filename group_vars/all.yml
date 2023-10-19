@@ -67,9 +67,6 @@ firewall_allowed_tcp_ports:
 
 grafana_domain_name: otp-performance.leonard.io
 grafana_allow_anon_access: true
-grafana_apache_aliases:
-  - dir: /home/lenni/www
-    path: /data
 
 users:
   - name: lenni
