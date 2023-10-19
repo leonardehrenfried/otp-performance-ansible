@@ -1,0 +1,2 @@
+otp-performance.leonard.io
+reverse_proxy localhost:{{ grafana_port }}

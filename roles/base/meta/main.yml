@@ -2,8 +2,6 @@
 collections:
 
 dependencies:
-  - role: geerlingguy.firewall
-  - leonardehrenfried.baseline.base
-  - leonardehrenfried.baseline.journald
+  - leonardehrenfried.baseline.caddyfile
 
 
