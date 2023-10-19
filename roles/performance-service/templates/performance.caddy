@@ -1,5 +1,5 @@
 {{ performance_service_domain }} {
-  basicauth / {
+  basicauth {
     performance $2a$14$yI5.n.rUGZaPMfmGXVulMuUrJX8vclDGxlX.Yzt893bNntnatkDMO
   }
   reverse_proxy localhost:{{ performance_service_port }}
