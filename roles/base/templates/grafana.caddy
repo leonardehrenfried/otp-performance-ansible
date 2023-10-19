@@ -1,2 +1,7 @@
-otp-performance.leonard.io
-reverse_proxy localhost:{{ grafana_port }}
+otp-performance.leonard.io {
+  reverse_proxy localhost:{{ grafana_port }}
+  handle_path /data* {
+    root * /home/lenni/www/
+    file_server browse
+  }
+}
