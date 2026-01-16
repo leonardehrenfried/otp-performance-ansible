@@ -8,7 +8,7 @@
     - backup-postgres-data
     - backup-grafana-db
 
-- name: Install systemd files for influx pruning
+- name: Install systemd files for backup postgres
   template: src={{ item }} dest=/etc/systemd/system/
   with_items:
     - backup-postgres-data.service

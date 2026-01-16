@@ -12,7 +12,7 @@ ExecStartPre=-podman rm %n
 
 #ExecStartPre=podman pull {{ performance_service_image }}
 
-ExecStart=podman run -it --rm --name %n \
+ExecStart=podman run --rm --name %n \
     -e POSTGRES_PASSWORD={{ performance_db_password }} \
     -v /home/lenni/data/:/data:z \
     --network=host \
