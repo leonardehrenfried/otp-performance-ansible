@@ -5,6 +5,7 @@ galaxy-install-force:
 	ansible-galaxy install --force -r requirements.yml
 
 install:
+	rm -rf ~/.ansible/collections/ansible_collections/leonardehrenfried/
 	ansible-galaxy collection install -r requirements.yml
 	ansible-galaxy install -r requirements.yml
 

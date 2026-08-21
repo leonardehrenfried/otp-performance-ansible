@@ -6,8 +6,12 @@ collections:
   version: 10.2.0
 - name: community.general
   version: 10.2.0
+# directory containing the collection
+# only uncomment when you want to work on the library repo "ansible-baseline"
+#- source: ../ansible-baseline
+#  type: dir
 - name: leonardehrenfried.baseline
-  version: 2.0.5
+  version: 2.0.8
 
 roles:
 - src: geerlingguy.firewall
